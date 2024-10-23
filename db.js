@@ -9,7 +9,7 @@ const mongoURL = process.env.MONGODB_URL;
 // Set up MongoDB connection
 mongoose.connect(mongoURL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
