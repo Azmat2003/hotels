@@ -1,0 +1,21 @@
+Connection Step by Step
+
+1. Import Mongoose and Define the MongoDB URL: In the db. js file, you first import the Mongoose library and define the URL to your MongoDB database. This URL typically follows the format
+mongodb:/ /<hostname>:<port>/<databaseName>. In your code, you've set the URL to 'mongodb://localhost:27017/mydatabase' where mydatabase is the name of your MongoDB database.
+
+2. Set Up the MongoDB Connection: Next, you call mongoose. connect () to establish a connection to the MongoDB database using the URL and some configuration options (useNewUrlParser, useUnifiedTopology, etc.). This step initializes the connection process but does not actually connect at this point.
+
+3. Access the Default Connection Object: Mongoose maintains a default connection object representing the MongoDB connection. You retrieve this object using mongoose. connection, and you've stored it in the variabledb. This object is what you'll use to handle events and interact with the database.
+
+
+4. Define Event Listeners: You define event listeners for the database connection using methods like on (' connected'
+, ...),
+•on('error', ...), and .on('disconnected'
+, ... ). These event
+listeners allow you to reast to different states of the database connection.
+
+
+5. Start Listening for Events: The code is set up to listen for events. When you call mongoose. connect (), Mongoose starts the connection process.
+If the connection is successful. the 'connected' event is triggered, and you log a message indicating that you're connected to MongoDB. If there's an error during the connection process, the 'error' event is triggered, and you log an error message. Similarly, the ' disconnected' event can be useful for handling situations where the connection is lost.
+
+6. Export the Database Connection: Finally, you export the db object, which represents the MongoDB connection, so that you can import and use it in other parts of your Node.js application.
